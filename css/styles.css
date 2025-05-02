@@ -54,13 +54,33 @@ a {
 img {
     display: block;
     max-width: 100%;
+    height: auto;
 }
+button {
+    cursor: pointer;
+}
+
+
 .container {
-    max-width: 1158px;
-    padding: 0 15px;
+    max-width: 320px;
+    padding: 0 16px;
     margin: 0 auto;
 }
 
+/* Tablet styles */
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 768px;
+    }
+}
+
+/* Desktop styles */
+@media screen and (min-width: 1158px) {
+    .container {
+        max-width: 1158px;
+        padding: 0 15px;
+    }
+}
 /* #region header */
 
 .page-header {
@@ -71,63 +91,68 @@ img {
 .header-container {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+}
+
+.nav-list,
+.contacts {
+    display: none;
 }
 
 .header-logo {
-    padding: 24px 0;
-    margin-right: 76px;
-}
-.header-nav {
-    display: flex;
-    align-items: center;
+    padding: 16px 0;
+    display: block;
 }
 
-.nav-list {
-    display: flex;
-    align-items: center;
-    gap: 40px;
+.burger-btn {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    padding: 16px 0; 
 }
 
-.nav-link.current {
-    position: relative;
-
+.burger-icon {
+    display: block;
+    fill: #2f2f37;
 }
 
-.nav-link.current::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -1px;
-    border-radius: 2px;
-    width: 100%;
-    height: 4px;
-    background-color: #404bbf;
+@media screen and (min-width: 768px) {
+    .burger-btn {
+        display: none;
+    }
 
-}
-.contacts-list {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-}
+    .header-nav {
+        display: flex;
+        align-items: center;
+    }
 
-.logo {
-    font-family: "Raleway", sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 1.17;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    color: #4d5ae5;
-}
-
- .header-logo .logo-part {
-    color: #2e2f42;
-}
-
- .footer-logo .logo-part {
-    color: #f4f4fd;
+    .nav-list {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+    }
     
- }
+    
+    .header-logo {
+        padding: 24px 0;
+        margin-right: 120px;
+    }
+    
+        .nav-link.current {
+            position: relative;
+    
+        }
+    
+        .nav-link.current::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -1px;
+            border-radius: 2px;
+            width: 100%;
+            height: 4px;
+            background-color: #404bbf;
+        }
 
 .nav-link {
     font-weight: 500;
@@ -150,18 +175,44 @@ img {
 
 .contacts {
     font-style: normal;
-    margin-left: auto;
+    display: block;
+}
+.contacts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .contacts-link {
     display: block;
-    padding: 24px 0;
-    font-size: 16px;
-    line-height: 1.5;
-    letter-spacing: 0.02em;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
     color: #434455;
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+}
+
+
+.logo {
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.17;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #4d5ae5;
+}
+
+ .header-logo .logo-part {
+    color: #2e2f42;
+}
+
+ .footer-logo .logo-part {
+    color: #f4f4fd;
+    
+ }
+
 
 /* #endregion header */
 
@@ -292,18 +343,8 @@ img {
 
 .team {
     background-color: #f4f4fd;
-    padding: 120px 0;
-}
-
-/* .team-container {
-    max-width: 1158px;
-} */
-
-.team-item {
-    background-color: #FFFFFF;
-    flex-basis: calc((100% - 3 * 24px) / 4);
-    border-radius: 0px 0px 4px 4px;
-    box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+    padding: 96px 0;
+    /* width: 100%; */
 }
 
 .team-title {
@@ -315,17 +356,58 @@ img {
     color: #2e2f42;
     text-transform: capitalize; 
     margin-bottom: 72px;
+   
 }
 
 .team-list {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 24px;
+    max-width: 264px;
+    margin: 0 auto;
+    gap: 72px;
 }
-.team-card {
-    /* padding-bottom: 32px; (чому збільшується при падінгу 32 більше ніж при маржині 32?) */
-    margin-bottom: 32px;
+
+@media screen and (min-width: 768px) {
+    .team-list {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        max-width: 736px;
+        row-gap: 64px;
+        column-gap: 24px;
+    }
 }
+
+@media screen and (min-width: 1158px) {
+    .team {
+        padding: 120px 0;
+    }
+
+    .team-list {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 24px;
+        max-width: 1128px;
+    }
+    /* .team-item {
+        flex-basis: calc((100% - 3 * 24px) / 4);
+       
+    } */
+}
+
+.team-item {
+    background-color: #FFFFFF;
+    max-width: 264px;
+    border-radius: 0px 0px 4px 4px;
+    box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+    padding-bottom: 32px;
+}
+
+
 .team-photo {
     margin-bottom: 32px;
 }
@@ -420,21 +502,13 @@ img {
 
 .portfolio {
     background-color: #FFFFFF;
-    padding-top: 120px;
-    padding-bottom: 120px;
+    padding-top: 96px;
+    padding-bottom: 96px;
 }
 
 /* .portfolio-container {
-    max-width: 1158px;
+    max-width: 288px;
 } */
-
-.portfolio-list {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    column-gap: 24px;
-    row-gap: 48px;
-}
 
 .portfolio-title {
     font-weight: 700;
@@ -445,9 +519,40 @@ img {
     color: #2e2f42;
     text-transform: capitalize;
     margin-bottom: 72px;
-
 }
 
+.portfolio-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+}
+
+@media screen and (min-width: 768px) {
+    .portfolio-list {
+        display: flex;
+            
+            flex-direction: row;
+            flex-wrap: wrap;
+            /* max-width: 736px; */
+            
+            row-gap: 72px;
+            column-gap: 24px;
+    }
+    .portfolio-item {
+flex-basis: calc((100% - 24px) / 2);
+}
+}
+
+@media screen and (min-width: 1158px) {
+    .portfolio-list {
+        row-gap: 48px;
+    }
+    .portfolio-item {
+        flex-basis: calc((100% - 48px) / 3);
+    }
+}
 .portfolio-card {
     border-bottom: 1px solid #e7e9fc;
     border-left: 1px solid #e7e9fc;
