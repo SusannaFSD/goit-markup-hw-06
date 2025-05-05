@@ -1205,9 +1205,6 @@ flex-basis: calc((100% - 24px) / 2);
 
 .modal-checkbox-wrap {
     margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-
 }
 
 .modal-checkbox-label {
@@ -1224,6 +1221,7 @@ flex-basis: calc((100% - 24px) / 2);
 
 .modal-custom-checkbox {
     display: inline-flex;
+    flex-shrink: 0;
     width: 16px;
     height: 16px;
     border: 1px solid rgba(46, 47, 66, 0.4);
